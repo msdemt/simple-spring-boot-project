@@ -1,17 +1,23 @@
 spring:
   application:
     name: logback-demo
-
+  profiles:
+    active: prod
 logging:
-  file:
-    #name: ${spring.application.name}
-    path: ${user.dir}/logs/${spring.application.name}.log
-  level:
-    root: debug
-  logback:
-    rollingpolicy:
-      max-file-size: 100MB
-      max-history: 31
-  pattern:
-    console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
+  # 使用文件配置日志：
+  # https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-log-configuration
+  config: classpath:logback-spring.xml
+
+# spring boot yml 配置日志
+#logging:
+#  file:
+#    # https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-logging-file-output
+#    name: ${user.home}/logs/${spring.application.name}/${spring.application.name}.log
+#  level:
+#    root: "debug"
+#    web: "info"
+#    sql: "error"
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 10GB
+#      max-history: 31

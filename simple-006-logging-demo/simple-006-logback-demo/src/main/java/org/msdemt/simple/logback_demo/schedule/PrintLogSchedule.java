@@ -10,23 +10,26 @@ import org.springframework.stereotype.Component;
 @EnableScheduling
 public class PrintLogSchedule {
 
-    @Scheduled(cron = "0/1 * * * * ?")
-    public void printDebugLog(){
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void printDebugLog() {
+        //log.debug("user.dir:" + System.getProperty("user.dir"));
         log.debug("print debug log");
     }
 
-    @Scheduled(cron = "0/2 * * * * ?")
-    public void printInfoLog(){
-        log.debug("print info log");
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void printInfoLog() {
+        //log.info("user.home:" + System.getProperty("user.home"));
+        log.info("print info log");
     }
 
-    @Scheduled(cron = "0/3 * * * * ?")
-    public void printWarnLog(){
-        log.debug("print warn log");
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void printWarnLog() {
+        log.warn("print warn log");
     }
 
-    @Scheduled(cron = "0/4 * * * * ?")
-    public void printErrorLog(){
-        log.debug("print error log");
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void printErrorLog() {
+        //log.error("user.name:" + System.getProperty("user.name"));
+        log.error("print error log");
     }
 }

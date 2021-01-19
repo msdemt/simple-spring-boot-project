@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.msdemt.simple.unified_exception_handler_demo.exception.handler.UnifiedExceptionHandler,\
+  org.msdemt.simple.unified_exception_handler_demo.i18n.UnifiedMessageSource
+

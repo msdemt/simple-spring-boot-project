@@ -1,0 +1,67 @@
+
+
+#dubbo:
+#  application:
+#    name: ykp-tb-provider
+#    qos-enable: true #默认true，是否允许在线运维、配置和查询服务
+#    qos-port: 2222 #默认2222
+#    qos-accept-foreign-ip: false #默认false，不允许远程访问
+#  protocol:
+#    name: dubbo
+#    port: 28080 #-1表示随机端口
+#  scan:
+#    base-packages: org.msdemt.ykp.tb.service
+#  provider:
+#    retries: 0 #服务提供者无需重试
+#    timeout: 6000
+#  registry: #单注册中心
+#    id: zk1
+#    register: true # 默认true，false表示服务不注册到注册中心（只订阅，直连服务正常），且dubbo-admin不显示
+#    address: zookeeper://172.16.87.128:2181
+    #file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+#  registries:
+#    - zk1:
+#      id:zk1
+#      timeout: 5000
+#      address: zookeeper//192.168.15.161:2181
+#      default: true
+#    - zk2:
+#      id: zk2
+#      timeout: 5000
+#      address: zookeeper//192.168.15.5:2181
+
+logging:
+  file:
+    name: ykp-tb-provider.log
+    path: /home/logs
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      max-history: 31
+  level:
+    root: "debug"
+    org.springframework.web: "info"
+    org.hibernate: "error"
+#
+#dubbo:
+#  scan:
+#    base-packages: org.msdemt.simple.dubbo_demo_provider.service
+#  protocol:
+#    name: dubbo
+#    port: -1
+#  registry: #单注册中心
+#    address: zookeeper://127.0.0.1:2181
+#    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+#  registries: #多注册中心
+#    - zk1:
+#      id:zk1
+#      timeout: 5000
+#      address: zookeeper//192.168.15.161:2181
+#      default: true
+#    - zk2:
+#      id: zk2
+#      timeout: 5000
+#      address: zookeeper//192.168.15.5:2181
+#demo:
+#  service:
+#    version: 1.0.0

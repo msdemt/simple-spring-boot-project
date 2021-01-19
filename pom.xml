@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>org.msdemt</groupId>
     <artifactId>simple-spring-boot-project</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -12,26 +12,27 @@
     <description>spring boot 项目简单实践</description>
 
     <modules>
-        <module>simple-001-unified-exception-handler</module>
-        <module>simple-002-mybatis-project</module>
-        <module>simple-003-spring-data-jpa</module>
-        <module>simple-004-mybatis-plus-project</module>
-        <module>simple-005-dubbo-demo-project</module>
+        <module>simple-001-unified-exception-handler-demo</module>
+        <module>simple-002-mybatis-demo</module>
+        <module>simple-003-spring-data-jpa-demo</module>
+        <module>simple-004-mybatis-plus-demo</module>
+        <module>simple-005-dubbo-demo</module>
+        <module>simple-006-logging-demo</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.4.2</spring-boot.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <project.encoding>UTF-8</project.encoding>
         <resource.delimiter>@</resource.delimiter>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
-        <revision>1.0.0</revision>
-        <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
-    </properties>
 
+        <revision>1.0.0</revision>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -43,13 +44,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -58,7 +52,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

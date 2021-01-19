@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>simple-005-dubbo-zookeeper-registry-demo</artifactId>
+        <groupId>org.msdemt</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>simple-005-dubbo-zk-registry-demo-provider</artifactId>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot dependencies-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--&lt;!&ndash; Apache Dubbo  &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--    <groupId>org.apache.dubbo</groupId>-->
+        <!--    <artifactId>dubbo-dependencies-bom</artifactId>-->
+        <!--    <version>${dubbo.version}</version>-->
+        <!--    <type>pom</type>-->
+        <!--    <scope>import</scope>-->
+        <!--    <exclusions>-->
+        <!--        <exclusion>-->
+        <!--            <groupId>org.springframework</groupId>-->
+        <!--            <artifactId>spring-context</artifactId>-->
+        <!--        </exclusion>-->
+        <!--    </exclusions>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Dubbo Spring Boot Starter &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--    <groupId>org.apache.dubbo</groupId>-->
+        <!--    <artifactId>dubbo-spring-boot-starter</artifactId>-->
+        <!--    <version>${dubbo.version}</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Zookeeper dependencies &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--    <groupId>org.apache.dubbo</groupId>-->
+        <!--    <artifactId>dubbo-dependencies-zookeeper</artifactId>-->
+        <!--    <version>${dubbo.version}</version>-->
+        <!--    <type>pom</type>-->
+        <!--    <exclusions>-->
+        <!--        <exclusion>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-log4j12</artifactId>-->
+        <!--        </exclusion>-->
+        <!--    </exclusions>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-test</artifactId>-->
+        <!--    <scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.projectlombok</groupId>-->
+        <!--    <artifactId>lombok</artifactId>-->
+        <!--    <optional>true</optional>-->
+        <!--</dependency>-->
+
+        <!-- Dubbo Spring Boot dependencies -->
+        <!--<dependency>-->
+        <!--    <groupId>org.apache.dubbo</groupId>-->
+        <!--    <artifactId>dubbo-spring-boot-starter</artifactId>-->
+        <!--</dependency>-->
+
+        <!--如果继承父pom dependencyManagement中type为pom的dependency，需要写上type pom，否则无法加载为依赖-->
+        <!--<dependency>-->
+        <!--    <groupId>org.apache.dubbo</groupId>-->
+        <!--    <artifactId>dubbo-dependencies-zookeeper</artifactId>-->
+        <!--    <type>pom</type>-->
+        <!--</dependency>-->
+
+        <!-- module dependencies -->
+        <!--<dependency>-->
+        <!--    <groupId>org.msdemt</groupId>-->
+        <!--    <artifactId>simple-005-dubbo-demo-api</artifactId>-->
+        <!--    <version>${project.version}</version>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <!--<build>-->
+    <!--    <plugins>-->
+    <!--        <plugin>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-maven-plugin</artifactId>-->
+    <!--            <version>${spring-boot.version}</version>-->
+    <!--            <executions>-->
+    <!--                <execution>-->
+    <!--                    <goals>-->
+    <!--                        <goal>repackage</goal>-->
+    <!--                    </goals>-->
+    <!--                </execution>-->
+    <!--            </executions>-->
+    <!--            <configuration>-->
+    <!--                <executable>false</executable>-->
+    <!--                <finalName>${project.artifactId}-${spring-boot.version}</finalName>-->
+    <!--                <outputDirectory>${user.dir}/target</outputDirectory>-->
+    <!--            </configuration>-->
+    <!--        </plugin>-->
+
+    <!--        <plugin>-->
+    <!--            <groupId>com.github.wvengen</groupId>-->
+    <!--            <artifactId>proguard-maven-plugin</artifactId>-->
+    <!--            <version>2.3.1</version>-->
+    <!--            <executions>-->
+    <!--                <execution>-->
+    <!--                    <phase>package</phase>-->
+    <!--                    <goals>-->
+    <!--                        <goal>proguard</goal>-->
+    <!--                    </goals>-->
+    <!--                </execution>-->
+    <!--            </executions>-->
+    <!--            <configuration>-->
+    <!--                <attach>true</attach>-->
+    <!--                <obfuscate>true</obfuscate>-->
+    <!--                <attachArtifactClassifier>pg</attachArtifactClassifier>-->
+    <!--                <options>-->
+    <!--                    <option>-printmapping '${project.build.directory}/${project.artifactId}.log'</option>-->
+    <!--                    <option>-ignorewarnings</option>-->
+    <!--                    <option>-dontshrink</option>-->
+    <!--                    <option>-dontoptimize</option>-->
+    <!--                    <option>-dontusemixedcaseclassnames</option>-->
+    <!--                    <option>-dontskipnonpubliclibraryclasses</option>-->
+    <!--                    <option>-dontskipnonpubliclibraryclassmembers</option>-->
+    <!--                    <option>-allowaccessmodification</option>-->
+    <!--                    <option>-useuniqueclassmembernames</option>-->
+    <!--                    <option>-keeppackagenames</option>-->
+    <!--                    <option>-adaptclassstrings</option>-->
+    <!--                    <option>-keepdirectories</option>-->
+    <!--                    <option>-keepattributes-->
+    <!--                        Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod-->
+    <!--                    </option>-->
+    <!--                    <option>-keepnames interface **</option>-->
+    <!--                    &lt;!&ndash; This option will save all original methods parameters in files-->
+    <!--        defined in -keep sections, otherwise all parameter names will be obfuscate. &ndash;&gt;-->
+    <!--                    <option>-keepparameternames</option>-->
+    <!--                    <option>-keepclassmembers class * {-->
+    <!--                        @org.springframework.beans.factory.annotation.Autowired *;-->
+    <!--                        @org.springframework.beans.factory.annotation.Value *;-->
+    <!--                        @org.springframework.context.annotation.Bean *;-->
+    <!--                        @org.springframework.beans.factory.annotation.Qualifier *;-->
+    <!--                        @org.springframework.stereotype.Repository *;-->
+    <!--                        @org.springframework.data.repository.NoRepositoryBean *;-->
+    <!--                        }-->
+    <!--                    </option>-->
+    <!--                    <option>-keepclassmembers enum * { *; }</option>-->
+    <!--                    <option>-keep class * implements java.io.Serializable</option>-->
+
+    <!--                    <option>-keep class org.msdemt.ykp.App { *; }</option>-->
+    <!--                    <option>-keepclassmembers public class * {void set*(***);*** get*();}</option>-->
+    <!--                </options>-->
+
+    <!--                <outjar>${project.build.finalName}-pg.jar</outjar>-->
+    <!--                <libs>-->
+    <!--                    &lt;!&ndash; <lib>${java.home}/jmods/java.base.jmod</lib> &ndash;&gt;-->
+    <!--                    <lib>${java.home}/lib/rt.jar</lib>-->
+    <!--                    &lt;!&ndash; <lib>${java.home}/lib/jce.jar</lib> &ndash;&gt;-->
+    <!--                </libs>-->
+
+    <!--                <injar>classes</injar>-->
+    <!--                <outputDirectory>${project.build.directory}</outputDirectory>-->
+    <!--            </configuration>-->
+    <!--        </plugin>-->
+    <!--    </plugins>-->
+    <!--</build>-->
+
+
+</project>

@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>simple-005-dubbo-zk-registry-demo-api</module>
         <module>simple-005-dubbo-zk-registry-demo-provider</module>
         <module>simple-005-dubbo-zk-registry-demo-consumer</module>
     </modules>

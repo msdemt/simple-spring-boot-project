@@ -9,6 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>simple-002-mybatis-demo</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>simple-002-mybatis-use-interface-proxy-demo</module>
+        <module>simple-002-mybatis-not-use-interface-proxy-demo</module>
+    </modules>
 
     <properties>
         <mybatis.version>2.1.4</mybatis.version>

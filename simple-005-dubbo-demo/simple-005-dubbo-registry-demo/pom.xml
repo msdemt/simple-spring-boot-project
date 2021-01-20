@@ -12,7 +12,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>simple-005-dubbo-registry-demo-api</module>
         <module>simple-005-dubbo-zookeeper-registry-demo</module>
+        <module>simple-005-dubbo-nacos-registry-demo</module>
     </modules>
 
 </project>

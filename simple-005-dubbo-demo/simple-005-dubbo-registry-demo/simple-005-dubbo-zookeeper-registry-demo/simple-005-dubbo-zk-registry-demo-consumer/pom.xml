@@ -25,23 +25,26 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- Dubbo Spring Boot dependencies -->
-        <!--<dependency>-->
-        <!--    <groupId>org.apache.dubbo</groupId>-->
-        <!--    <artifactId>dubbo-spring-boot-starter</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
 
-        <!--&lt;!&ndash;如果继承父pom dependencyManagement中type为pom的dependency，需要写上type pom，否则无法加载为依赖&ndash;&gt;-->
-        <!--<dependency>-->
-        <!--    <groupId>org.apache.dubbo</groupId>-->
-        <!--    <artifactId>dubbo-dependencies-zookeeper</artifactId>-->
-        <!--    <type>pom</type>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <type>pom</type>
+        </dependency>
 
-        <!-- module dependencies -->
+        <!--module dependency-->
+        <dependency>
+            <groupId>org.msdemt</groupId>
+            <artifactId>simple-005-dubbo-registry-demo-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
     </dependencies>
 

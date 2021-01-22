@@ -19,6 +19,7 @@
         <module>simple-005-dubbo-demo</module>
         <module>simple-006-logging-demo</module>
         <module>simple-007-custom-starter-demo</module>
+        <module>simple-008-swagger-demo</module>
     </modules>
 
     <properties>

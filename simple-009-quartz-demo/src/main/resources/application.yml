@@ -1,0 +1,16 @@
+
+# spring boot yml 配置日志
+logging:
+  #file:
+    # https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-logging-file-output
+    #name: ${user.home}/logs/${spring.application.name}/${spring.application.name}.log
+  level:
+    root: "info"
+    web: "info"
+    sql: "error"
+  logback:
+    rollingpolicy:
+      max-file-size: 10GB
+      max-history: 31
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] - [%-5level] [%logger{50} : %line] - %msg%n"

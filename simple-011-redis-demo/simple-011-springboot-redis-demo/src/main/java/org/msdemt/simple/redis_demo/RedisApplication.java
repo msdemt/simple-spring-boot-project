@@ -1,4 +1,4 @@
-package org.msdemt.simple.redis_demo.test;
+package org.msdemt.simple.redis_demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

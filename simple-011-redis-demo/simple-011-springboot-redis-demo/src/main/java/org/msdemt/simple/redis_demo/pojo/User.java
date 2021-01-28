@@ -1,4 +1,4 @@
-package org.msdemt.simple.redis_demo.test.pojo;
+package org.msdemt.simple.redis_demo.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

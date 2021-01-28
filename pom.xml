@@ -20,7 +20,9 @@
         <module>simple-006-logging-demo</module>
         <module>simple-007-custom-starter-demo</module>
         <module>simple-008-swagger-demo</module>
-        <module>simple-009-quartz-demo</module>
+        <module>simple-009-proguard-demo</module>
+        <module>simple-010-quartz-demo</module>
+        <module>simple-011-redis-demo</module>
     </modules>
 
     <properties>

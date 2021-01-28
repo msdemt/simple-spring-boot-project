@@ -1,4 +1,4 @@
-package org.msdemt.simple.mybatis_use_interface_proxy_demo.dao.entity;
+package org.msdemt.simple.redis_demo.test.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
-    private static final long serialVersionUID = 6151537955659372302L;
+    private static final long serialVersionUID = 2489911387827654482L;
 
-    private Integer id;
     private String name;
     private Integer age;
     private String address;

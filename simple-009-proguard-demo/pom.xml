@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>simple-spring-boot-project</artifactId>
+        <groupId>org.msdemt</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>simple-009-proguard-demo</artifactId>
+
+    <properties>
+        <proguard-maven-plugin.version>2.3.1</proguard-maven-plugin.version>
+        <swagger.version>3.0.0</swagger.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>${artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>${proguard-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <!--混淆时刻，这里是打包的时候混淆,还可以选择compile,process-class,取决于injar配置-->
+                        <phase>package</phase>
+                        <goals>
+                            <!--使用插件的混淆功能-->
+                            <goal>proguard</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--是否另外创建构件,默认为false。true则在target目录产生 同名_small.jar文件，可以使用attachArtifactClassifier参数配置后缀名-->
+                    <!--<attach>true</attach>-->
+                    <!--另外产生的构件 后缀名,attach为true时才有用, 不指定时为small-->
+                    <!--<attachArtifactClassifier>pg</attachArtifactClassifier>-->
+
+                    <!--是否进行混淆，默认为true-->
+                    <obfuscate>true</obfuscate>
+
+                    <!--指定proguard版本-->
+                    <!--<proguardVersion>6.2.2</proguardVersion>-->
+
+                    <!--混淆配置文件,可选,不配置的话需要在configuration-options下进行相关配置-->
+                    <!--<proguardInclude>${project.basedir}/proguard.cfg</proguardInclude>-->
+
+                    <!--
+                    指定要处理的jar|war|zip包,默认${project.build.finalName}.jar，
+                    即,该插件默认是在package产生原始jar包后,对输出jar包进行处理的。
+                    这里也可以指定为classes，对产生原始jar的class输入进行处理，
+                    但是这样子要生效,则必须修改插件作用的生命周期,将package改为 compile 或 process-classes
+                    -->
+                    <injar>${project.build.finalName}.jar</injar>
+                    <!--springboot项目，injar和outjar需要配置一样才可以使可运行jar包里的的类被混淆-->
+                    <!-- 指定生成jar包名称(原始名称的jar还是混淆的),在attach为true时不生效(attach本身就会多产生jar包)-->
+                     <outjar>${project.build.finalName}.jar</outjar>
+
+                    <!-- 输出目录,默认即为${project.build.directory}-->
+                    <!-- <outputDirectory>${project.build.directory}</outputDirectory> -->
+
+                    <!--proguard的配置-->
+                    <options>
+                        <!--打印混淆映射关系-->
+                        <option>-printmapping '${project.build.directory}/${project.artifactId}.log'</option>
+
+                        <!--略过warning,不输出warning(否则有warning时无法继续)-->
+                        <option>-ignorewarnings</option>
+
+                        <!--不做压缩（删除注释、未被引用代码）-->
+                        <option>-dontshrink</option>
+
+                        <!--不做优化（变更代码实现逻辑）-->
+                        <option>-dontoptimize</option>
+
+                        <!--不混用大小写(即把大写和小写字母当成同一个), 在一些不分辨大小写的系统打开类是有用的-->
+                        <!--<option>-dontusemixedcaseclassnames</option>-->
+
+                        <!--指定在读取库jar时跳过非公共类，以加快处理速度并减少ProGuard的内存使用。某些情况可能出错,因此不使用-->
+                        <!--<option>-skipnonpubliclibraryclasses</option>-->
+
+                        <!--指定不忽略非公共库类。默认配置-->
+                        <option>-dontskipnonpubliclibraryclasses</option>
+
+                        <!--指定不忽略包公共库类成员(字段和方法)-->
+                        <!--<option>-dontskipnonpubliclibraryclassmembers</option>-->
+
+                        <!--优化时允许访问并修改有修饰符的类和类的成员,(可配合repackageclasses使用). (作为lib的不应该使用)-->
+                        <!--<option>-allowaccessmodification</option>-->
+
+                        <!--统一混淆。避免情况：两个有同样签名的接口. 一个类实现了上述的两个接口.如果两个接口签名混淆之后不同,那么是有问题的.所以一开始就混淆为相同的-->
+                        <option>-useuniqueclassmembernames</option>
+                        <!--保持目录结构，否则spring的自动注入无法使用-->
+
+                        <!--<option>-keeppackagenames</option>-->
+                        <option>-adaptclassstrings</option>
+                        <option>-keepdirectories</option>
+                        <option>-keepattributes
+                            Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,
+                            *Annotation*,Synthetic,EnclosingMethod
+                        </option>
+                        <option>-keepnames interface **</option>
+                        <!-- This option will save all original methods parameters in files defined in -keep sections,
+                        otherwise all parameter names will be obfuscate. -->
+                        <option>-keepparameternames</option>
+                        <!--此选项将在所有包的所有类中保存所有原始定义的注释-->
+                        <option>-keepclassmembers class * {
+                            @org.springframework.beans.factory.annotation.Autowired *;
+                            @org.springframework.beans.factory.annotation.Value *;
+                            @org.springframework.context.annotation.Bean *;
+                            @org.springframework.beans.factory.annotation.Qualifier *;
+                            @org.springframework.stereotype.Repository *;
+                            @org.springframework.data.repository.NoRepositoryBean *;
+                            }
+                        </option>
+                        <option>-keepclassmembernames class * {
+                            void set*(***);
+                            boolean is*();
+                            *** get*();
+                            }</option>
+                        <option>-keepclassmembers enum * { *; }</option>
+                        <option>-keepclassmembers public class * {void set*(***);*** get*();}</option>
+                        <option>-keep class * implements java.io.Serializable</option>
+                        <option>-keep interface * extends * { *; }</option>
+                        <!--保护程序入口-->
+                        <option>-keep class org.msdemt.proguard_demo.Application { *; }</option>
+                        <!--<option>-keepclassmembers public class * {void set*(***);*** get*();}</option>-->
+                    </options>
+
+                    <!--依赖，按需修改，一般一个JRE的Runtime包就行了-->
+                    <!--<libs>
+                        &lt;!&ndash;jdk8及一下版本&ndash;&gt;
+                        <lib>${java.home}/lib/rt.jar</lib>
+                        &lt;!&ndash;jdk8以上版本&ndash;&gt;
+                        &lt;!&ndash; <lib>${java.home}/jmods/java.base.jmod</lib> &ndash;&gt;
+                        &lt;!&ndash; <lib>${java.home}/lib/jce.jar</lib> &ndash;&gt;
+                    </libs>-->
+
+                </configuration>
+
+                <!--若上面使用proguardVersion制定了版本，需要在这个加上对应版本的依赖-->
+                <!--<dependencies>-->
+                <!--    <dependency>-->
+                <!--        <groupId>net.sf.proguard</groupId>-->
+                <!--        <artifactId>proguard-base</artifactId>-->
+                <!--        <version>6.2.2</version>-->
+                <!--    </dependency>-->
+                <!--</dependencies>-->
+            </plugin>
+
+            <!-- Maven assembly must be run after proguard obfuscation so it take already obfuscated files.-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>org.msdemt.proguard_demo.Application</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -12,7 +12,7 @@ public class PrintLogSchedule {
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void printDebugLog() {
-        //log.debug("user.dir:" + System.getProperty("user.dir"));
+        log.debug("user.dir:" + System.getProperty("user.dir"));
         log.debug("print debug log");
     }
 

@@ -36,6 +36,9 @@ public class RedisTest {
      *       {"name":"nike","age":30,"address":"beijing"}
      *       User(name=nike, age=30, address=beijing)
      *
+     *     使用 JdkSerializationRedisSerializer 的时候，被序列化的类必须实现 Serializable 接口，否则序列化时会出现错误：
+     *     Caused by: org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.msdemt.simple.redis_demo.pojo.User]
+     *
      * 2. 使用 Jackson2JsonRedisSerializer 解析器，解析器参数置为Object，
      *  template.setDefaultSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
      *
@@ -60,6 +63,7 @@ public class RedisTest {
      *      User(name=nike, age=30, address=beijing)
      *      {"name":"nike","age":30,"address":"beijing"}
      *      User(name=nike, age=30, address=beijing)
+     *      User(name=nike, age=30, address=beijing)
      *
      * 3. 使用 GenericJackson2JsonRedisSerializer 解析器，该解析器会自动保存对象类型，不用传入参数，
      *  template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
@@ -67,6 +71,7 @@ public class RedisTest {
      *      测试用例执行成功，输出结果：
      *      User(name=nike, age=30, address=beijing)
      *      {"name":"nike","age":30,"address":"beijing"}
+     *      User(name=nike, age=30, address=beijing)
      *      User(name=nike, age=30, address=beijing)
      *
      * 总结，一般情况下，使用 GenericJackson2JsonRedisSerializer 即可。
@@ -78,6 +83,7 @@ public class RedisTest {
         redisTemplate.opsForValue().set("admin", user);
         System.out.println(user.toString());
         System.out.println(new ObjectMapper().writeValueAsString(user));
+        System.out.println(redisTemplate.opsForValue().get("admin"));
         System.out.println((User)redisTemplate.opsForValue().get("admin"));
         Assertions.assertEquals(user, redisTemplate.opsForValue().get("admin"));
     }

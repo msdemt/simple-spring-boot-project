@@ -1,0 +1,25 @@
+//添加用户
+GET http://localhost:8080/add/1/hekai/30
+Accept: application/json
+
+<> 2021-01-30T194716.200.json
+
+###
+//查询用户
+GET http://localhost:8080/get/1
+Accept: application/json
+
+<> 2021-01-30T194608.200.json
+
+###
+//删除用户
+GET http://localhost:8080/del/1
+Accept: application/json
+
+###
+
+POST http://localhost:8080/get/1
+Accept: application/json
+
+###
+

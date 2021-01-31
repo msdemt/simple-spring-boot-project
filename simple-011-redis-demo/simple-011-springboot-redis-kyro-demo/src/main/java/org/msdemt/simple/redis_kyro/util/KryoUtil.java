@@ -13,6 +13,7 @@ public class KryoUtil {
 
     private static final String DEFAULT_ENCODING = "UTF-8";
 
+    //kyro不是线程安全的
     //每个线程的 Kryo 实例
     private static final ThreadLocal<Kryo> kryoLocal = new ThreadLocal<Kryo>() {
         @Override
@@ -90,7 +91,6 @@ public class KryoUtil {
      * @param <T>       原对象的类型
      * @return 原对象
      */
-    @SuppressWarnings("unchecked")
     public static <T> T readFromByteArray(byte[] byteArray) {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
         Input input = new Input(byteArrayInputStream);

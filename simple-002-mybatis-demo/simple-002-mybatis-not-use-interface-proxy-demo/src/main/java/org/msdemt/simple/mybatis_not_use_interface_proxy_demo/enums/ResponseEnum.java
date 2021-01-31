@@ -17,18 +17,18 @@ public enum ResponseEnum implements BusinessExceptionAssert {
     /**
      * 请求实体为空
      */
-    REQUEST_IS_NULL(1001, "Request is null."),
+    REQUEST_IS_NULL("1001", "Request is null."),
     /**
      * 用户不存在
      */
-    NOT_EXIST_USER(1002, "User not exist.")
+    NOT_EXIST_USER("1002", "User not exist.")
 
     ;
 
     /**
      * 返回码
      */
-    private int code;
+    private String code;
     /**
      * 返回消息
      */

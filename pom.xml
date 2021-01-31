@@ -12,7 +12,7 @@
     <description>spring boot 项目简单实践</description>
 
     <modules>
-        <module>simple-001-unified-exception-handler-demo</module>
+        <module>simple-001-exception-handler-demo</module>
         <module>simple-002-mybatis-demo</module>
         <module>simple-003-spring-data-jpa-demo</module>
         <module>simple-004-mybatis-plus-demo</module>
@@ -23,6 +23,7 @@
         <module>simple-009-proguard-demo</module>
         <module>simple-010-quartz-demo</module>
         <module>simple-011-redis-demo</module>
+
     </modules>
 
     <properties>

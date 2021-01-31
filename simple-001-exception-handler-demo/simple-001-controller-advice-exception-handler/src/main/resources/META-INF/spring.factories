@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.msdemt.simple.exception_handler.exception.handler.ControllerExceptionHandler,\
+  org.msdemt.simple.exception_handler.exception.handler.CustomErrorController

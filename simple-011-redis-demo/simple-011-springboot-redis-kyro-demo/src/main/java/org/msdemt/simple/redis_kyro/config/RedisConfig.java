@@ -10,20 +10,15 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-    /**
-     * redisTemplate 序列化使用的Serializeable, 存储二进制字节码, 所以自定义序列化类
-     * @param redisConnectionFactory
-     * @return
-     */
     @Bean
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
 
-        // redis key使用的序列化器
         template.setKeySerializer(new StringRedisSerializer());
-        // redis value使用的序列化器
         template.setValueSerializer(new KryoRedisSerializer<>());
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(new KryoRedisSerializer<>());
 
         return template;
     }

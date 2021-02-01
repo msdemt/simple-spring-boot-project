@@ -24,28 +24,31 @@ public class UserController {
     @GetMapping(value = "/add/{id}/{name}/{age}")
     public R add(@PathVariable("id") final Integer id, @PathVariable("name") final String name,
                  @PathVariable("age") final Integer age) {
+        Integer i = null;
+        int a = 300/i;
+        return R.ok();
 
-        User user = new User(id, name, age, null);
-        userService.addUser(user);
-        return new R(user);
+        //User user = new User(id, name, age, null);
+        //userService.addUser(user);
+        //return new R(user);
     }
 
     @GetMapping(value = "/get/{id}")
     public R get(@PathVariable("id") final Integer id) {
         User user = userService.getUser(id);
-        return new R(user);
+        return R.ok(user);
     }
 
     @GetMapping(value = "/del/{id}")
     public R del(@PathVariable("id") final Integer id) {
         User user = userService.delUser(id);
         UserRespEnum.USER_NOT_EXIST.assertNotNull(user);
-        return new R(user);
+        return R.ok(user);
     }
 
     @PostMapping(value = "/add")
     public R add(@Validated User user){
-        return new R(userService.addUser(user));
+        return R.ok(userService.addUser(user));
     }
 
 }

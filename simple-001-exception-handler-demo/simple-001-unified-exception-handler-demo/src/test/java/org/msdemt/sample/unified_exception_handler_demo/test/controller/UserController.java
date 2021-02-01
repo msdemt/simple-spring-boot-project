@@ -20,10 +20,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    //@ResponseBody
     @GetMapping("/{id}")
     public R<User> getUserById(@PathVariable("id") Integer id){
-        return new R<>(userService.findUserById(id));
+        return R.ok(userService.findUserById(id));
+    }
+
+    @GetMapping("/serverex")
+    public R<User> testServerException(){
+        throw new NullPointerException("空指针异常");
     }
 
 }

@@ -24,7 +24,7 @@ public class UserController {
     //@ResponseBody
     @GetMapping("/{id}")
     public R<User> getUserById(@PathVariable("id") Integer id){
-        return new R<>(userService.findUserById(id));
+        return R.ok(userService.findUserById(id));
     }
 
 }

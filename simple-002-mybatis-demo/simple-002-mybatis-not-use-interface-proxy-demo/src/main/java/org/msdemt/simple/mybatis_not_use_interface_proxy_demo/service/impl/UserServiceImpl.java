@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService {
         ResponseEnum.REQUEST_IS_NULL.assertNotNull(id);
         User user = userMapper.getUserById(id);
         //校验用户是否存在
-        ResponseEnum.NOT_EXIST_USER.assertNotNull(user);
+        ResponseEnum.USER_NOT_EXIST.assertNotNull(user);
         return user;
     }
 }

@@ -12,11 +12,11 @@ import java.util.function.Supplier;
 /**
  * <p>枚举类异常断言，提供简便的方式判断条件，并在条件满足时抛出异常</p>
  * <p>错误码和错误信息定义在枚举类中，在本断言方法中，传递错误信息需要的参数</p>
- *
  */
 public interface Assert {
     /**
      * 新建异常
+     *
      * @param args
      * @return
      */
@@ -24,6 +24,7 @@ public interface Assert {
 
     /**
      * 新建异常
+     *
      * @param t
      * @param args
      * @return
@@ -67,7 +68,7 @@ public interface Assert {
     }
 
     /**
-     * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
+     * 若判断 obj 对象为空，则新建自定义异常并抛出
      *
      * @param obj 待判断对象
      */
@@ -81,7 +82,7 @@ public interface Assert {
      * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
-     * @param obj 待判断对象
+     * @param obj  待判断对象
      * @param args message占位符对应的参数列表
      */
     default void assertNotNull(Object obj, Object... args) {
@@ -93,7 +94,7 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertNotNullWithMsg(Object obj, String errMsg) {
@@ -106,9 +107,9 @@ public interface Assert {
      * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotNullWithMsg(Object obj, String errMsg, Object... args) {
         if (obj == null) {
@@ -119,7 +120,7 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertNotNullWithMsg(Object obj, Supplier<String> errMsg) {
@@ -132,9 +133,9 @@ public interface Assert {
      * <p>断言对象<code>obj</code>非空。如果对象<code>obj</code>为空，则抛出异常
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotNullWithMsg(Object obj, Supplier<String> errMsg, Object... args) {
         if (obj == null) {
@@ -157,7 +158,7 @@ public interface Assert {
      * <p>断言字符串<code>str</code>不为空串（长度为0）。如果字符串<code>str</code>为空串，则抛出异常
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
-     * @param str 待判断字符串
+     * @param str  待判断字符串
      * @param args message占位符对应的参数列表
      */
     default void assertNotEmpty(String str, Object... args) {
@@ -169,7 +170,7 @@ public interface Assert {
     /**
      * <p>断言字符串<code>str</code>不为空串（长度为0）。如果字符串<code>str</code>为空串，则抛出异常
      *
-     * @param str 待判断字符串
+     * @param str    待判断字符串
      * @param errMsg 自定义的错误信息
      */
     default void assertNotEmptyWithMsg(String str, String errMsg) {
@@ -182,9 +183,9 @@ public interface Assert {
      * <p>断言字符串<code>str</code>不为空串（长度为0）。如果字符串<code>str</code>为空串，则抛出异常
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
-     * @param str 待判断字符串
+     * @param str    待判断字符串
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(String str, String errMsg, Object... args) {
         if (str == null || "".equals(str.trim())) {
@@ -208,7 +209,7 @@ public interface Assert {
      * <p>异常信息<code>message</code>支持传递参数方式，避免在判断之前进行字符串拼接操作
      *
      * @param arrays 待判断数组
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmpty(Object[] arrays, Object... args) {
         if (arrays == null || arrays.length == 0) {
@@ -234,7 +235,7 @@ public interface Assert {
      *
      * @param arrays 待判断数组
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Object[] arrays, String errMsg, Object... args) {
         if (arrays == null || arrays.length == 0) {
@@ -260,7 +261,7 @@ public interface Assert {
      *
      * @param arrays 待判断数组
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Object[] arrays, Supplier<String> errMsg, Object... args) {
         if (arrays == null || arrays.length == 0) {
@@ -274,7 +275,7 @@ public interface Assert {
      * @param c 待判断数组
      */
     default void assertNotEmpty(Collection<?> c) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newException();
         }
     }
@@ -282,11 +283,11 @@ public interface Assert {
     /**
      * <p>断言集合<code>c</code>大小不为0。如果集合<code>c</code>大小不为0，则抛出异常
      *
-     * @param c 待判断数组
+     * @param c    待判断数组
      * @param args message占位符对应的参数列表
      */
     default void assertNotEmpty(Collection<?> c, Object... args) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newException(args);
         }
     }
@@ -294,11 +295,11 @@ public interface Assert {
     /**
      * <p>断言集合<code>c</code>大小不为0。如果集合<code>c</code>大小不为0，则抛出异常
      *
-     * @param c 待判断数组
+     * @param c      待判断数组
      * @param errMsg 自定义的错误信息
      */
     default void assertNotEmptyWithMsg(Collection<?> c, String errMsg) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newExceptionWithMsg(errMsg);
         }
     }
@@ -306,12 +307,12 @@ public interface Assert {
     /**
      * <p>断言集合<code>c</code>大小不为0。如果集合<code>c</code>大小不为0，则抛出异常
      *
-     * @param c 待判断数组
+     * @param c      待判断数组
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Collection<?> c, String errMsg, Object... args) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newExceptionWithMsg(errMsg, args);
         }
     }
@@ -319,11 +320,11 @@ public interface Assert {
     /**
      * <p>断言集合<code>c</code>大小不为0。如果集合<code>c</code>大小不为0，则抛出异常
      *
-     * @param c 待判断数组
+     * @param c      待判断数组
      * @param errMsg 自定义的错误信息
      */
     default void assertNotEmptyWithMsg(Collection<?> c, Supplier<String> errMsg) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newExceptionWithMsg(errMsg.get());
         }
     }
@@ -331,12 +332,12 @@ public interface Assert {
     /**
      * <p>断言集合<code>c</code>大小不为0。如果集合<code>c</code>大小不为0，则抛出异常
      *
-     * @param c 待判断数组
+     * @param c      待判断数组
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Collection<?> c, Supplier<String> errMsg, Object... args) {
-        if (c ==  null || c.isEmpty()) {
+        if (c == null || c.isEmpty()) {
             throw newExceptionWithMsg(errMsg.get(), args);
         }
     }
@@ -347,7 +348,7 @@ public interface Assert {
      * @param map 待判断Map
      */
     default void assertNotEmpty(Map<?, ?> map) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newException();
         }
     }
@@ -355,11 +356,11 @@ public interface Assert {
     /**
      * <p>断言Map<code>map</code>大小不为0。如果Map<code>map</code>大小不为0，则抛出异常
      *
-     * @param map 待判断Map
+     * @param map  待判断Map
      * @param args message占位符对应的参数列表
      */
     default void assertNotEmpty(Map<?, ?> map, Object... args) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newException(args);
         }
     }
@@ -367,11 +368,11 @@ public interface Assert {
     /**
      * <p>断言Map<code>map</code>大小不为0。如果Map<code>map</code>大小不为0，则抛出异常
      *
-     * @param map 待判断Map
+     * @param map    待判断Map
      * @param errMsg 自定义的错误信息
      */
     default void assertNotEmptyWithMsg(Map<?, ?> map, String errMsg) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newExceptionWithMsg(errMsg);
         }
     }
@@ -379,12 +380,12 @@ public interface Assert {
     /**
      * <p>断言Map<code>map</code>大小不为0。如果Map<code>map</code>大小不为0，则抛出异常
      *
-     * @param map 待判断Map
+     * @param map    待判断Map
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Map<?, ?> map, String errMsg, Object... args) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newExceptionWithMsg(errMsg, args);
         }
     }
@@ -392,11 +393,11 @@ public interface Assert {
     /**
      * <p>断言Map<code>map</code>大小不为0。如果Map<code>map</code>大小不为0，则抛出异常
      *
-     * @param map 待判断Map
+     * @param map    待判断Map
      * @param errMsg 自定义的错误信息
      */
     default void assertNotEmptyWithMsg(Map<?, ?> map, Supplier<String> errMsg) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newExceptionWithMsg(errMsg.get());
         }
     }
@@ -404,12 +405,12 @@ public interface Assert {
     /**
      * <p>断言Map<code>map</code>大小不为0。如果Map<code>map</code>大小不为0，则抛出异常
      *
-     * @param map 待判断Map
+     * @param map    待判断Map
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertNotEmptyWithMsg(Map<?, ?> map, Supplier<String> errMsg, Object... args) {
-        if (map ==  null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             throw newExceptionWithMsg(errMsg.get(), args);
         }
     }
@@ -429,7 +430,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为false。如果布尔值<code>expression</code>为true，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param args message占位符对应的参数列表
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsFalse(boolean expression, Object... args) {
         if (expression) {
@@ -441,7 +442,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为false。如果布尔值<code>expression</code>为true，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息
+     * @param errMsg     自定义的错误信息
      */
     default void assertIsFalseWithMsg(boolean expression, String errMsg) {
         if (expression) {
@@ -453,8 +454,8 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为false。如果布尔值<code>expression</code>为true，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param errMsg     自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsFalseWithMsg(boolean expression, String errMsg, Object... args) {
         if (expression) {
@@ -466,7 +467,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为false。如果布尔值<code>expression</code>为true，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息
+     * @param errMsg     自定义的错误信息
      */
     default void assertIsFalseWithMsg(boolean expression, Supplier<String> errMsg) {
         if (expression) {
@@ -478,8 +479,8 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为false。如果布尔值<code>expression</code>为true，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param errMsg     自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsFalseWithMsg(boolean expression, Supplier<String> errMsg, Object... args) {
         if (expression) {
@@ -502,7 +503,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为true。如果布尔值<code>expression</code>为false，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param args message占位符对应的参数列表
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsTrue(boolean expression, Object... args) {
         if (!expression) {
@@ -514,7 +515,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为true。如果布尔值<code>expression</code>为false，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息
+     * @param errMsg     自定义的错误信息
      */
     default void assertIsTrueWithMsg(boolean expression, String errMsg) {
         if (!expression) {
@@ -526,8 +527,8 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为true。如果布尔值<code>expression</code>为false，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param errMsg     自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsTrueWithMsg(boolean expression, String errMsg, Object... args) {
         if (!expression) {
@@ -539,7 +540,7 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为true。如果布尔值<code>expression</code>为false，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息
+     * @param errMsg     自定义的错误信息
      */
     default void assertIsTrueWithMsg(boolean expression, Supplier<String> errMsg) {
         if (!expression) {
@@ -551,8 +552,8 @@ public interface Assert {
      * <p>断言布尔值<code>expression</code>为true。如果布尔值<code>expression</code>为false，则抛出异常
      *
      * @param expression 待判断布尔变量
-     * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param errMsg     自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
+     * @param args       message占位符对应的参数列表
      */
     default void assertIsTrueWithMsg(boolean expression, Supplier<String> errMsg, Object... args) {
         if (!expression) {
@@ -574,7 +575,7 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>为<code>null</code>。如果对象<code>obj</code>不为<code>null</code>，则抛出异常
      *
-     * @param obj 待判断布尔变量
+     * @param obj  待判断布尔变量
      * @param args message占位符对应的参数列表
      */
     default void assertIsNull(Object obj, Object... args) {
@@ -586,7 +587,7 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>为<code>null</code>。如果对象<code>obj</code>不为<code>null</code>，则抛出异常
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertIsNullWithMsg(Object obj, String errMsg) {
@@ -598,9 +599,9 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>为<code>null</code>。如果对象<code>obj</code>不为<code>null</code>，则抛出异常
      *
-     * @param obj 待判断布尔变量
+     * @param obj    待判断布尔变量
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertIsNullWithMsg(Object obj, String errMsg, Object... args) {
         if (obj != null) {
@@ -611,7 +612,7 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>为<code>null</code>。如果对象<code>obj</code>不为<code>null</code>，则抛出异常
      *
-     * @param obj 待判断对象
+     * @param obj    待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertIsNullWithMsg(Object obj, Supplier<String> errMsg) {
@@ -623,9 +624,9 @@ public interface Assert {
     /**
      * <p>断言对象<code>obj</code>为<code>null</code>。如果对象<code>obj</code>不为<code>null</code>，则抛出异常
      *
-     * @param obj 待判断布尔变量
+     * @param obj    待判断布尔变量
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertIsNullWithMsg(Object obj, Supplier<String> errMsg, Object... args) {
         if (obj != null) {
@@ -638,7 +639,7 @@ public interface Assert {
      * 如果两对象不相等，则抛出异常
      *
      * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o2 待判断对象
      */
     default void assertEquals(Object o1, Object o2) {
         if (o1 == o2) {
@@ -653,8 +654,8 @@ public interface Assert {
      * <p>断言对象<code>o1</code>与对象<code>o2</code>相等，此处的相等指（o1.equals(o2)为true）。
      * 如果两对象不相等，则抛出异常
      *
-     * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o1   待判断对象，若<code>o1</code>为null，也当作不相等处理
+     * @param o2   待判断对象
      * @param args message占位符对应的参数列表
      */
     default void assertEquals(Object o1, Object o2, Object... args) {
@@ -670,8 +671,8 @@ public interface Assert {
      * <p>断言对象<code>o1</code>与对象<code>o2</code>相等，此处的相等指（o1.equals(o2)为true）。
      * 如果两对象不相等，则抛出异常
      *
-     * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o1     待判断对象，若<code>o1</code>为null，也当作不相等处理
+     * @param o2     待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertEqualsWithMsg(Object o1, Object o2, String errMsg) {
@@ -687,10 +688,10 @@ public interface Assert {
      * <p>断言对象<code>o1</code>与对象<code>o2</code>相等，此处的相等指（o1.equals(o2)为true）。
      * 如果两对象不相等，则抛出异常
      *
-     * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o1     待判断对象，若<code>o1</code>为null，也当作不相等处理
+     * @param o2     待判断对象
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertEqualsWithMsg(Object o1, Object o2, String errMsg, Object... args) {
         if (o1 == o2) {
@@ -705,8 +706,8 @@ public interface Assert {
      * <p>断言对象<code>o1</code>与对象<code>o2</code>相等，此处的相等指（o1.equals(o2)为true）。
      * 如果两对象不相等，则抛出异常
      *
-     * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o1     待判断对象，若<code>o1</code>为null，也当作不相等处理
+     * @param o2     待判断对象
      * @param errMsg 自定义的错误信息
      */
     default void assertEqualsWithMsg(Object o1, Object o2, Supplier<String> errMsg) {
@@ -722,10 +723,10 @@ public interface Assert {
      * <p>断言对象<code>o1</code>与对象<code>o2</code>相等，此处的相等指（o1.equals(o2)为true）。
      * 如果两对象不相等，则抛出异常
      *
-     * @param o1 待判断对象，若<code>o1</code>为null，也当作不相等处理
-     * @param o2  待判断对象
+     * @param o1     待判断对象，若<code>o1</code>为null，也当作不相等处理
+     * @param o2     待判断对象
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertEqualsWithMsg(Object o1, Object o2, Supplier<String> errMsg, Object... args) {
         if (o1 == o2) {
@@ -738,7 +739,6 @@ public interface Assert {
 
     /**
      * <p>直接抛出异常
-     *
      */
     default void assertFail() {
         throw newException();
@@ -769,7 +769,7 @@ public interface Assert {
      * <p>当捕获非运行时异常（非继承{@link RuntimeException}）时，并该异常进行业务描述时，
      * 必须传递原始异常，作为新异常的cause
      *
-     * @param t 原始异常
+     * @param t    原始异常
      * @param args message占位符对应的参数列表
      */
     default void assertFail(Throwable t, Object... args) {
@@ -789,7 +789,7 @@ public interface Assert {
      * <p>直接抛出异常
      *
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertFailWithMsg(String errMsg, Object... args) {
         throw newExceptionWithMsg(errMsg, args);
@@ -801,7 +801,7 @@ public interface Assert {
      * 必须传递原始异常，作为新异常的cause
      *
      * @param errMsg 自定义的错误信息
-     * @param t 原始异常
+     * @param t      原始异常
      */
     default void assertFailWithMsg(String errMsg, Throwable t) {
         throw newExceptionWithMsg(errMsg, t);
@@ -813,8 +813,8 @@ public interface Assert {
      * 必须传递原始异常，作为新异常的cause
      *
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param t 原始异常
-     * @param args message占位符对应的参数列表
+     * @param t      原始异常
+     * @param args   message占位符对应的参数列表
      */
     default void assertFailWithMsg(String errMsg, Throwable t, Object... args) {
         throw newExceptionWithMsg(errMsg, t, args);
@@ -833,7 +833,7 @@ public interface Assert {
      * <p>直接抛出异常
      *
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param args message占位符对应的参数列表
+     * @param args   message占位符对应的参数列表
      */
     default void assertFailWithMsg(Supplier<String> errMsg, Object... args) {
         throw newExceptionWithMsg(errMsg.get(), args);
@@ -845,7 +845,7 @@ public interface Assert {
      * 必须传递原始异常，作为新异常的cause
      *
      * @param errMsg 自定义的错误信息
-     * @param t 原始异常
+     * @param t      原始异常
      */
     default void assertFailWithMsg(Supplier<String> errMsg, Throwable t) {
         throw newExceptionWithMsg(errMsg.get(), t);
@@ -857,8 +857,8 @@ public interface Assert {
      * 必须传递原始异常，作为新异常的cause
      *
      * @param errMsg 自定义的错误信息. 支持 {index} 形式的占位符, 比如: errMsg-用户[{0}]不存在, args-1001, 最后打印-用户[1001]不存在
-     * @param t 原始异常
-     * @param args message占位符对应的参数列表
+     * @param t      原始异常
+     * @param args   message占位符对应的参数列表
      */
     default void assertFailWithMsg(Supplier<String> errMsg, Throwable t, Object... args) {
         throw newExceptionWithMsg(errMsg.get(), t, args);

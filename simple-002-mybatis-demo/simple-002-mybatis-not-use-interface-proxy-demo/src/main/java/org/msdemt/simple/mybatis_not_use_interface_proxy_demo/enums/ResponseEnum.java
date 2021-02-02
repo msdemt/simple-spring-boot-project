@@ -21,7 +21,7 @@ public enum ResponseEnum implements BusinessExceptionAssert {
     /**
      * 用户不存在
      */
-    NOT_EXIST_USER("1002", "User not exist.")
+    USER_NOT_EXIST("1002", "User not exist.")
 
     ;
 

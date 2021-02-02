@@ -113,6 +113,7 @@ public class UnifiedExceptionHandler {
             TypeMismatchException.class,
             HttpMessageNotReadableException.class,
             HttpMessageNotWritableException.class,
+            HttpMediaTypeNotAcceptableException.class,
             // BindException.class,
             // MethodArgumentNotValidException.class
             ServletRequestBindingException.class,
@@ -216,7 +217,7 @@ public class UnifiedExceptionHandler {
         log.error(e.getMessage(), e);
 
         if (ENV_PROD.equals(profile)) {
-            // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如数据库异常信息.
+            // 当为生产环境, 不适合把具体的异常信息(比如数据库连接失败信息)展示给用户,此处统一返回SERVER_ERROR
             String code = CommonResponseEnum.SERVER_ERROR.getCode();
             BaseException baseException = new BaseException(CommonResponseEnum.SERVER_ERROR);
             String message = getMessage(baseException);

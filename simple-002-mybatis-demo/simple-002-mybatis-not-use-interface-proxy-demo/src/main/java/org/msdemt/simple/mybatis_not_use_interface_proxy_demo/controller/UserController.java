@@ -2,6 +2,7 @@ package org.msdemt.simple.mybatis_not_use_interface_proxy_demo.controller;
 
 
 import org.msdemt.simple.mybatis_not_use_interface_proxy_demo.dao.entity.User;
+import org.msdemt.simple.mybatis_not_use_interface_proxy_demo.enums.ResponseEnum;
 import org.msdemt.simple.mybatis_not_use_interface_proxy_demo.service.IUserService;
 import org.msdemt.simple.unified_exception_handler_demo.pojo.response.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    //@ResponseBody
     @GetMapping("/{id}")
     public R<User> getUserById(@PathVariable("id") Integer id){
-        return R.ok(userService.findUserById(id));
+        User user = userService.findUserById(id);
+        ResponseEnum.USER_NOT_EXIST.assertNotNull(user);
+        return R.ok(user);
     }
-
 }

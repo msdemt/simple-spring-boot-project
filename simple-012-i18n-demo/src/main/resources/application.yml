@@ -1,0 +1,4 @@
+spring:
+  messages:
+    # 配置i18n配置文件的路径
+    basename: i18n/messages

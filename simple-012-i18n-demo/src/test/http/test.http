@@ -1,0 +1,8 @@
+GET http://localhost:8080/hello
+Accept: application/json
+Accept-Language: zh-CN
+
+###
+
+GET http://localhost:8080/hello?lang=zh-CN
+Accept: application/json

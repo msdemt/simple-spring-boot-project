@@ -21,13 +21,13 @@ import java.util.Map;
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class CustomErrorController extends BasicErrorController {
 
-    public CustomErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
-        super(errorAttributes, errorProperties);
-    }
-
-    public CustomErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
-        super(errorAttributes, errorProperties, errorViewResolvers);
-    }
+    //public CustomErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
+    //    super(errorAttributes, errorProperties);
+    //}
+    //
+    //public CustomErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
+    //    super(errorAttributes, errorProperties, errorViewResolvers);
+    //}
 
     @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
@@ -37,22 +37,22 @@ public class CustomErrorController extends BasicErrorController {
         return modelAndView;
     }
 
-    @RequestMapping
-    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-
-        HttpStatus status = getStatus(request);
-
-        Map<String, Object> errorAttributes = new HashMap<>();
-        if(status == HttpStatus.NOT_FOUND){
-            //404错误 统一返回如下信息
-            errorAttributes.put("code", CommonResponseEnum.NO_MATCHIING_BUSINESS_FOUND.getCode());
-            errorAttributes.put("mess", CommonResponseEnum.NO_MATCHIING_BUSINESS_FOUND.getMessage());
-        }
-        if (status == HttpStatus.NO_CONTENT) {
-            return new ResponseEntity<>(status);
-        }
-
-        Map<String, Object> body = errorAttributes;
-        return new ResponseEntity<>(body, status);
-    }
+    //@RequestMapping
+    //public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+    //
+    //    HttpStatus status = getStatus(request);
+    //
+    //    Map<String, Object> errorAttributes = new HashMap<>();
+    //    if(status == HttpStatus.NOT_FOUND){
+    //        //404错误 统一返回如下信息
+    //        errorAttributes.put("code", CommonResponseEnum.NO_MATCHIING_BUSINESS_FOUND.getCode());
+    //        errorAttributes.put("mess", CommonResponseEnum.NO_MATCHIING_BUSINESS_FOUND.getMessage());
+    //    }
+    //    if (status == HttpStatus.NO_CONTENT) {
+    //        return new ResponseEntity<>(status);
+    //    }
+    //
+    //    Map<String, Object> body = errorAttributes;
+    //    return new ResponseEntity<>(body, status);
+    //}
 }

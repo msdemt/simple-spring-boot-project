@@ -23,6 +23,7 @@
         <module>simple-009-proguard-demo</module>
         <module>simple-010-quartz-demo</module>
         <module>simple-011-redis-demo</module>
+        <module>simple-012-i18n-demo</module>
 
     </modules>
 

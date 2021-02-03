@@ -25,9 +25,15 @@ public class UserController {
         return R.ok(userService.findUserById(id));
     }
 
-    @GetMapping("/serverex")
+    @GetMapping("/null")
     public R<User> testServerException(){
         throw new NullPointerException("空指针异常");
+    }
+
+    @RequestMapping("/hello")
+    public String hello(HttpServletResponse response) throws IOException {
+        response.sendError(404);
+        return "123";
     }
 
 }

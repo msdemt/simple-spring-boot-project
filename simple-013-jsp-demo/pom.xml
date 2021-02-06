@@ -8,19 +8,14 @@
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>simple-012-i18n-demo</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>simple-013-jsp-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>simple-013-jsp-jar-webapp-demo</module>
+        <module>simple-013-jsp-jar-demo</module>
+        <module>simple-013-jsp-war-demo</module>
+    </modules>
 
 
 </project>

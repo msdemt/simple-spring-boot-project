@@ -40,6 +40,7 @@
 
         <revision>1.0.0</revision>
 
+        <!--这些参数无法从 spring-boot-dependencies 继承，所以只能在这个定义下-->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
@@ -48,6 +49,7 @@
         <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
 
+        <!--避免本文件中出现红色错误提示-->
         <start-class></start-class>
     </properties>
 

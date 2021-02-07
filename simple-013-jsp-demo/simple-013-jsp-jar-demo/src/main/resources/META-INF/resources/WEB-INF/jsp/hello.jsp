@@ -2,8 +2,11 @@
 <html>
 <head>
     <title>Test</title>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/test.js"></script>
 </head>
 <body>
-${name}
+
+<input id="testButton" type="button" value="hello" onclick="alertAjaxTest('GET', '/ajax/content')"/>
+
 </body>
 </html>

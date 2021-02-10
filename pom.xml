@@ -25,6 +25,7 @@
         <module>simple-011-redis-demo</module>
         <module>simple-012-i18n-demo</module>
         <module>simple-013-jsp-demo</module>
+        <module>simple-014-pure-servlet-demo</module>
     </modules>
 
     <properties>

@@ -15,5 +15,10 @@
     <input type="submit" value="request post 乱码测试">
 </form>
 
+<form action="<%=request.getContextPath()%>/test6" method="post">
+    <input type="text" name="name" value="你好">
+    <input type="submit" value="request post 乱码测试">
+</form>
+
 </body>
 </html>

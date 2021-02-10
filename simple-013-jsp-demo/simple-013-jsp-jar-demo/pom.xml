@@ -11,6 +11,11 @@
 
     <artifactId>simple-013-jsp-jar-demo</artifactId>
 
+    <properties>
+        <tomcat.version>7.0.100</tomcat.version>
+        <!--<tomcat.version>9.0.41</tomcat.version>-->
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

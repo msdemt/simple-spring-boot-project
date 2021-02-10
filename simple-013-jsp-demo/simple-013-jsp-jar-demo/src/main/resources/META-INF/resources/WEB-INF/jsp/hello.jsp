@@ -6,6 +6,10 @@
 </head>
 <body>
 
+<%=request.getContextPath()%>
+
+<br>
+
 <input id="testButton" type="button" value="hello" onclick="alertAjaxTest('GET', '/ajax/content')"/>
 
 </body>

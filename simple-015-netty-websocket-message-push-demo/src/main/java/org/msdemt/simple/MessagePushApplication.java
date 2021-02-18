@@ -1,13 +1,11 @@
-package org.msdemt.sample.unified_exception_handler_demo.test;
+package org.msdemt.simple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UnifiedExceptionHandlerTestApp {
-
+public class MessagePushApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UnifiedExceptionHandlerTestApp.class, args);
+        SpringApplication.run(MessagePushApplication.class, args);
     }
-
 }

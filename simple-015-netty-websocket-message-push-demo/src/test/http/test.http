@@ -1,0 +1,4 @@
+POST http://localhost:8080/push/pushOne
+Content-Type: application/x-www-form-urlencoded
+
+msg=你好,世界&userId=123456

@@ -26,6 +26,9 @@
         <module>simple-012-i18n-demo</module>
         <module>simple-013-jsp-demo</module>
         <module>simple-014-pure-servlet-demo</module>
+        <module>simple-015-netty-websocket-message-push-demo</module>
+        <module>simple-016-hutool-demo</module>
+        <module>simple-017-multi-thread-demo</module>
     </modules>
 
     <properties>

@@ -29,6 +29,7 @@
         <module>simple-015-netty-websocket-message-push-demo</module>
         <module>simple-016-hutool-demo</module>
         <module>simple-017-multi-thread-demo</module>
+        <module>simple-018-mapstruct-demo</module>
     </modules>
 
     <properties>
